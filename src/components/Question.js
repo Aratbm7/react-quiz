@@ -1,14 +1,16 @@
-import Options from "./Options"
+import { useQuize } from "../contexts/QuizContext";
+import Options from "./Options";
 
-
-function Question({question, dispatch, answer}) {
-    return (
-        <h4 className="question">
-           {question.question}
-           {console.log(question)}
-           <Options question={question} dispatch={dispatch} answer={answer} />
-        </h4>
-    )
+function Question() {
+  const { questions, index } = useQuize();
+  const question = questions.at(index);
+  return (
+    <h4 className="question">
+      {question.question}
+      {console.log(question)}
+      <Options question={question} />
+    </h4>
+  );
 }
 
-export default Question
+export default Question;

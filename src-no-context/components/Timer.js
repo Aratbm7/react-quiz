@@ -1,11 +1,9 @@
 import { useEffect } from "react";
-import { useQuize } from "../contexts/QuizContext";
 
 // In this case when Timer component re-rendered actually app componnent is
 // re-rendered and all children component re-renderd too, This issue
 // in large application can be make performance isuue
-function Timer() {
-  const { remainSec: sec, dispatch } = useQuize();
+function Timer({ dispatch, sec }) {
   const min = Math.floor(sec / 60);
   const secend = sec % 60;
   useEffect(function () {
